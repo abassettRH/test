@@ -1,9 +1,8 @@
 apiVersion: mirror.openshift.io/v1alpha2
 kind: ImageSetConfiguration
 storageConfig:
- registry:                 
-   imageURL: quay.apps.cluster-8pt5f.dynamic.opentlc.com/mirrors/test/metadata:latest
-   skipTLS: true
+ local:                 
+   path: /workspace/mirror-workspace/test_dir/
 mirror:
   operators:
     - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.11   
