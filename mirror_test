@@ -1,0 +1,33 @@
+apiVersion: mirror.openshift.io/v1alpha2
+    kind: ImageSetConfiguration
+    storageConfig:
+     registry:                 
+       imageURL: quay.apps.cluster-8pt5f.dynamic.opentlc.com/mirrors/test/metadata:latest
+       skipTLS: true
+    mirror:
+      operators:
+        - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.11   
+          packages:
+            - name: cluster-logging        
+              channels:                    
+                - name: stable             
+                - name: stable-5.5         
+                  minVersion: '5.5.5'      
+                  maxVersion: '5.5.5'
+            - name: elasticsearch-operator
+              channels:
+                - name: stable
+                - name: stable-5.5
+                  minVersion: '5.5.5'
+                  maxVersion: '5.5.5'
+            - name: cincinnati-operator
+              channels:
+                - name: v1
+                  minVersion: v5.0.0
+                  maxVersion: v5.0.0
+            - name: kubernetes-nmstate-operator
+              channels:
+                - name: stable
+                - name: '4.11'
+                  minVersion: '4.11.0-202212070335'
+                  maxVersion: '4.11.0-202212070335'
